@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/account.png</file>
+        <file>Image/logo.png</file>
+        <file>Image/password.png</file>
+        <file>Image/phone.png</file>
+        <file>Image/QRcode.png</file>
+        <file>Image/reset.png</file>
+        <file>Image/reset_press.png</file>
+        <file>Image/return.png</file>
+        <file>Image/shopping.png</file>
+        <file>Image/tallying.png</file>
+    </qresource>
+</RCC>

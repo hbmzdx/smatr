@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>514</width>
+    <height>510</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>40</y>
+      <width>400</width>
+      <height>400</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>4</number>
+    </property>
+    <widget class="AdvertisementInterface" name="advertisementWidget"/>
+    <widget class="LoginInterface" name="loginWidget"/>
+    <widget class="SelectInterface" name="selectWidget"/>
+    <widget class="AdminInterface" name="adminWidget"/>
+    <widget class="ShopInterface" name="shopwidget"/>
+   </widget>
+   <widget class="QPushButton" name="pushButton_reset">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_reset
+{
+border-image: url(:/Image/reset.png);
+
+}
+#pushButton_reset:pressed
+{
+  
+	border-image: url(:/Image/reset_press.png);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_countTime">
+    <property name="geometry">
+     <rect>
+      <x>211</x>
+      <y>10</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>514</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>AdvertisementInterface</class>
+   <extends>QWidget</extends>
+   <header>advertisementinterface.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LoginInterface</class>
+   <extends>QWidget</extends>
+   <header>logininterface.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SelectInterface</class>
+   <extends>QWidget</extends>
+   <header>selectinterface.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AdminInterface</class>
+   <extends>QWidget</extends>
+   <header>admininterface.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ShopInterface</class>
+   <extends>QWidget</extends>
+   <header>shopinterface.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

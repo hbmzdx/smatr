@@ -1,0 +1,77 @@
+一：QTableWidget
+
+1、初始化方法
+    ui->tableWidget->setStyleSheet("selection-background-color:red; selection-color: white;"); //设置tableWidget QSS样式表，背景为红色，字体为白色
+    ui->tableWidget->hideColumn(0);	//隐藏第一列
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers); //设置不可编辑
+    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);//一次选一行
+    ui->tableWidget->setFocusPolicy(Qt::NoFocus);	//去掉虚线框
+    ui->tableWidget->setSortingEnabled(true);	//增加表头排序功能
+
+    ui->tableWidget->horizontalHeader()->setFixedHeight(30);    //固定列头高度为30像素
+    ui->tableWidget->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}");   //设置tableWidget列头QSS样式表，背景为天蓝
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);//表头拉伸
+    ui->tableWidget->horizontalHeader()->setHighlightSections(false);       //选中列头不在高亮
+
+    ui->tableWidget->verticalHeader()->hide();//隐藏行头
+    ui->tableWidget->verticalHeader()->setHighlightSections(false);         //选中行头不在高亮
+
+2、常用方法
+    int line = ui->tableWidget->rowCount();	//获取当前共有多少行
+    int column = ui->tableWidget->columnCount(); //获取当前有多少列
+    ui->tableWidget->clearContents();		//清除表内所有数据(不包含表头数据和设置的其他属性)
+    ui->tableWidget->clear();			//清除所有数据（包含表头数据和设置的属性）
+    ui->tableWidget->setRowCount(0);                   //设置当前行数，为0
+    ui->tableWidget->setColumnCount(0);               //设置当前列数，为0
+    ui->tableWidget->selectRow(line);		//选中第line行
+    int row = ui->tableWidget->currentRow();	//获取当前选中行
+
+3、添加数据
+    int row;	//行号
+    int column;	//列号
+    QString text;	//插入的数据
+    QTableWidget *widget //某一个widget控件指针
+    ui->tableWidget->insertRow(row);	//插入第row行，在该行数据插入前需要先插入该行
+    ui->tableWidget->setItem(row, column, new QTableWidgetItem(text));    //在第row行，第column列，插入text数据
+    ui->tableWidget->setCellWidget(row, column, widget);    //在第row行，第column列，插入widget控件
+
+4、获取数据
+    int row;	//行号
+    int column;	//列号
+    QString text = ui->tableWidget->item(row,column)->text();  //获取第row行，第column列的数据
+
+
+
+
+二：QTextEdit
+
+1、初始化方法
+    QPalette palette = ui->textEdit->palette();			//获取textEdit的调色板
+    palette.setColor(QPalette::Highlight, QColor(Qt::transparent));	//将选中区域背景改为透明
+    palette.setColor(QPalette::HighlightedText, QColor(Qt::red));	//将选中区域的文字改为红色
+    ui->textEdit->setPalette(palette);				//将调色板设置到textEdit
+    ui->textEdit->setReadOnly(true);				//设置为只读
+    ui->textEdit->document()->setDefaultTextOption(QTextOption(Qt::AlignHCenter));	//文字居中显示
+
+2、添加数据
+    QString text;
+    ui->textEdit->setText(text);
+
+3、移动光标到指定行
+    int line = (指定行)；
+    QTextCursor tc2 = ui->textEdit->textCursor();				   //获取当前光标
+    int pos2 = ui->textEdit->document()->findBlockByLineNumber(line).position(); //在textEdit中找到指定行位置
+    tc2.setPosition(pos2, QTextCursor::MoveAnchor);			  //将光标设置到指定位置
+    tc2.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);	  //光标设置成选中一整行，并且保持此状态
+    ui->textEdit->setTextCursor(tc2);					  //将设置好的光标属性放到textEdit中
+	
+
+三.QListWidget
+        ui->listWidget->setIconSize(QSize(100, 100));  //修改图标大小
+        ui->listWidget->setViewMode(QListView::IconMode); //设置为图标模式，上图下字
+        QListWidgetItem *item = new QListWidgetItem(QIcon(), QString());  //初始化条目
+        item->setSizeHint(QSize(150, 150)); //设置条目大小
+        item->setFlags(Qt::ItemIsEnabled); //使能条目，可以与用户交互
+        item->setData(Qt::UserRole, iter->id);  //设置一个用户数据
+        item->data(Qt::UserRole).toInt();  //使用用户数据
+        ui->listWidget->addItem(item); //添加条目到列表中
